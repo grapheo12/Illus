@@ -14,7 +14,6 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '''
-
 from Tkinter import *
 
 class RtDialog(Label):
@@ -42,11 +41,12 @@ class DrawBoard(Canvas):
     def __init__(self, root):
         self.root = root
         Canvas.__init__(self, root, background="black")
-        self.configure(height=480, width=640)
+        self.configure(height=768, width=1024)
         self.bind("<Button-1>", self.draw)
         self.bind("<B1-Motion>", self.draw)
         self.bind("<B2-Motion>", self.erase)
         self.bind("<Button-3>", self.showDialog)
+        self.config(scrollregion=self.bbox(ALL))
         self.dialogbox = Label(root)
         self.color = StringVar()
         self.color.set('white')
@@ -59,8 +59,8 @@ class DrawBoard(Canvas):
         self.dialogdeath()
         col = self.color.get()
         pwi = self.pwidth.get() / 10
-        x = event.x
-        y = event.y
+        x = self.canvasx(event.x)
+        y = self.canvasy(event.y)
         self.create_oval(x-pwi, y-pwi, x+pwi, y+pwi, fill=col, outline=col)
         
     def erase(self, event):
@@ -77,18 +77,32 @@ class DrawBoard(Canvas):
     def dialogdeath(self):
         self.dialogbox.destroy()
         
-        
+
 if __name__=="__main__":
     def createboard(*args):
         global Board
         Board.destroy()
         Board = DrawBoard(root)
         
+    def onmousewheel(event):
+        if event.num == 4:
+            Board.yview_scroll(-1, "units")
+        else:
+            Board.yview_scroll(1, "units")
+
+        
     root = Tk()
-    Board = DrawBoard(root)
+    root.geometry('640x480')
+    root.maxsize(width=1024, height=768)
+    
+    Board = Label(text='ILLUS\nby Shubham Mishra')
+    Board.pack()
     root.title('ILLUS')
     root.bind('<N>', createboard)
     createboard()
+    Board.bind_all("<Button-4>",onmousewheel)
+    Board.bind_all("<Button-5>", onmousewheel)
+
 
     
     root.mainloop()
