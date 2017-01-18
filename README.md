@@ -1,4 +1,5 @@
 # Illus
+==============================================================
 Illus is a minimal illustration app based on Python and Tkinter. 
 
 
