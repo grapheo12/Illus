@@ -16,7 +16,7 @@ donofsuri@gmail.com
 
 
 #Controls
-Left-Click  :   Draw
-Right-Click :   Show Options
-Middle-Click    :   Erase
+Left-Click  :   Draw\n
+Right-Click :   Show Options\n
+Middle-Click    :   Erase\n
 Scroll  :   Scroll
