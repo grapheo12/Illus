@@ -95,6 +95,9 @@ if __name__=="__main__":
     root.geometry('640x480')
     root.maxsize(width=1024, height=768)
     
+    icon = PhotoImage(file="icon.png")
+    root.tk.call('wm', 'iconphoto', root._w, icon)
+           
     Board = Label(text='ILLUS\nby Shubham Mishra')
     Board.pack()
     root.title('ILLUS')
