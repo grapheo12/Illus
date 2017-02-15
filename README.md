@@ -1,5 +1,5 @@
 # Illus
-==============================================================
+
 Illus is a minimal illustration app based on Python and Tkinter. 
 
 
@@ -13,8 +13,6 @@ Shubham Mishra
 www.github.com/grapheo12
 #Author-email
 donofsuri@gmail.com
-
-
 
 #Controls
 Left-Click  :   Draw  
