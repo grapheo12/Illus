@@ -63,7 +63,7 @@ class DrawBoard(Canvas):
         pwi = self.pwidth.get() / 10
         x = self.canvasx(event.x)
         y = self.canvasy(event.y)
-        self.create_line(self.x, self.y, x, y, fill=col)
+        self.create_line(self.x, self.y, x, y, fill=col, width=pwi)
 	self.coordreset(event)
         
     def erase(self, event):
