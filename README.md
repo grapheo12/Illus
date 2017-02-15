@@ -23,6 +23,8 @@ www.github.com/grapheo12
 donofsuri@gmail.com
 
 #Controls
+
+
 Left-Click  :   Draw  
 Right-Click :   Show Options  
 Middle-Click    :   Erase  
