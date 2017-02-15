@@ -47,8 +47,8 @@ class DrawBoard(Canvas):
         self.bind("<B2-Motion>", self.erase)
         self.bind("<Button-3>", self.showDialog)
         self.config(scrollregion=self.bbox(ALL))
-	    self.x = 0
-	    self.y = 0
+        self.x = 0
+        self.y = 0
         self.dialogbox = Label(root)
         self.color = StringVar()
         self.color.set('white')
@@ -64,7 +64,7 @@ class DrawBoard(Canvas):
         x = self.canvasx(event.x)
         y = self.canvasy(event.y)
         self.create_line(self.x, self.y, x, y, fill=col, width=pwi)
-	    self.coordreset(event)
+        self.coordreset(event)
         
     def erase(self, event):
         self.dialogdeath()
@@ -84,7 +84,7 @@ class DrawBoard(Canvas):
 	    self.x, self.y = self.canvasx(event.x), self.canvasy(event.y)
         
 
-if __name__=="__main__":
+if __name__!="__main__":
     def createboard(*args):
         global Board
         Board.destroy()
