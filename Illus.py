@@ -69,9 +69,9 @@ class DrawBoard(Canvas):
     def erase(self, event):
         self.dialogdeath()
         col = self.cget('bg')
-        pwi = self.pwidth.get() / 10
-        x = event.x
-        y = event.y
+        pwi = self.pwidth.get() / 5
+        x = self.canvasx(event.x)
+        y = self.canvasy(event.y)
         self.create_oval(x-pwi, y-pwi, x+pwi, y+pwi, fill=col)
                   
     def showDialog(self, event):
@@ -101,7 +101,10 @@ if __name__!="__main__":
     root.geometry('640x480')
     root.maxsize(width=1024, height=768)
     
-    icon = PhotoImage(file="icon.png")
+    try:
+        icon = PhotoImage(file="icon.png")
+    except:
+        icon = PhotoImage(file="Illus/icon.png")
     root.tk.call('wm', 'iconphoto', root._w, icon)
            
     Board = Label(text='ILLUS\nby Shubham Mishra')
