@@ -47,8 +47,8 @@ class DrawBoard(Canvas):
         self.bind("<B2-Motion>", self.erase)
         self.bind("<Button-3>", self.showDialog)
         self.config(scrollregion=self.bbox(ALL))
-	self.x = 0
-	self.y = 0
+	    self.x = 0
+	    self.y = 0
         self.dialogbox = Label(root)
         self.color = StringVar()
         self.color.set('white')
