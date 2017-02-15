@@ -64,7 +64,7 @@ class DrawBoard(Canvas):
         x = self.canvasx(event.x)
         y = self.canvasy(event.y)
         self.create_line(self.x, self.y, x, y, fill=col, width=pwi)
-	self.coordreset(event)
+	    self.coordreset(event)
         
     def erase(self, event):
         self.dialogdeath()
@@ -81,7 +81,7 @@ class DrawBoard(Canvas):
         self.dialogbox.destroy()
 
     def coordreset(self, event):
-	self.x, self.y = self.canvasx(event.x), self.canvasy(event.y)
+	    self.x, self.y = self.canvasx(event.x), self.canvasy(event.y)
         
 
 if __name__=="__main__":
