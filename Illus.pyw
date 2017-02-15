@@ -42,11 +42,13 @@ class DrawBoard(Canvas):
         self.root = root
         Canvas.__init__(self, root, background="black")
         self.configure(height=768, width=1024)
-        self.bind("<Button-1>", self.draw)
+        self.bind("<Button-1>", self.coordreset)
         self.bind("<B1-Motion>", self.draw)
         self.bind("<B2-Motion>", self.erase)
         self.bind("<Button-3>", self.showDialog)
         self.config(scrollregion=self.bbox(ALL))
+	self.x = 0
+	self.y = 0
         self.dialogbox = Label(root)
         self.color = StringVar()
         self.color.set('white')
@@ -61,7 +63,8 @@ class DrawBoard(Canvas):
         pwi = self.pwidth.get() / 10
         x = self.canvasx(event.x)
         y = self.canvasy(event.y)
-        self.create_oval(x-pwi, y-pwi, x+pwi, y+pwi, fill=col, outline=col)
+        self.create_line(self.x, self.y, x, y, fill=col)
+	self.coordreset(event)
         
     def erase(self, event):
         self.dialogdeath()
@@ -76,6 +79,9 @@ class DrawBoard(Canvas):
         self.dialogbox = RtDialog(self.root, self.color, self.pwidth, event.x, event.y)
     def dialogdeath(self):
         self.dialogbox.destroy()
+
+    def coordreset(self, event):
+	self.x, self.y = self.canvasx(event.x), self.canvasy(event.y)
         
 
 if __name__=="__main__":
