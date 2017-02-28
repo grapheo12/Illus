@@ -1,4 +1,5 @@
 '''
+   Illus.py is a part of Illus Project
    Copyright 2017 Shubham Mishra
    
     This program is free software: you can redistribute it and/or modify
