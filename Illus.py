@@ -87,7 +87,9 @@ class DrawBoard(Canvas):
         self.color.set('#ffffff')
         self.pwidth = IntVar()
         self.pwidth.set('50')
-        
+       
+        self.second_effect = 'e'
+
         self.pack()
         
     def draw(self, event):
@@ -105,7 +107,13 @@ class DrawBoard(Canvas):
         pwi = self.pwidth.get() / 5
         x = self.canvasx(event.x)
         y = self.canvasy(event.y)
-        self.create_oval(x-pwi, y-pwi, x+pwi, y+pwi, fill=col)
+        if self.second_effect == 'e':
+            self.create_line(self.x, self.y, x, y, fill=col, width=pwi)
+            self.coordreset(event)
+        elif self.second_effect == 'o':
+            self.create_oval(x-pwi, y-pwi, x+pwi, y+pwi, fill=col)
+        elif self.second_effect == 's':
+             self.create_rectangle(x-pwi, y-pwi, x+pwi, y+pwi, fill=col)
                   
     def showDialog(self, event):
         self.dialogdeath()
@@ -119,6 +127,9 @@ class DrawBoard(Canvas):
 
     def changeBoardColor(self, event):
         self.configure(background=self.color.get())
+
+    def changeEffect(self, event):
+        self.second_effect = event.keysym
         
 
 if __name__!="__main__":
@@ -155,7 +166,10 @@ if __name__!="__main__":
     root.bind('<T>', Board.changeBoardColor)
     Board.bind_all("<Button-4>",onmousewheel)
     Board.bind_all("<Button-5>", onmousewheel)
-
+    
+    root.bind('<e>', Board.changeEffect)
+    root.bind('<o>', Board.changeEffect)
+    root.bind('<s>', Board.changeEffect)
 
     
     root.mainloop()
