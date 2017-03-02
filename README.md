@@ -23,7 +23,8 @@ donofsuri@gmail.com
 
 Left-Click      :   Draw  
 Right-Click     :   Show Options (Here you can choose the color and width of the pen)  
-Middle-Click    :   Erase  
-Shift-N         :   Clear All 
-Shift-T         :   Change the bord color to the pen color 
+Middle-Click    :   Erase/ Draw Oval or Rectangle (Depends upon the chosen secondary effect)    
+e, o, s         :   Sets secondary effect to e(rase), o(val), s(quare)  
+Shift-N         :   Clear All  
+Shift-T         :   Change the bord color to the pen color  
 Scroll          :   Scroll
